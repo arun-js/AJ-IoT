@@ -1,0 +1,53 @@
+// Define the Echo and Trigger pins for the ultrasonic sensor
+#define echoPin 6
+#define triggerPin 7
+
+// Variables to store the duration of the pulse and calculated distance
+long x;
+int distance;
+
+// Buzzer pin
+int buzzer = 8;
+
+void setup() {
+  // Set the trigger pin as an OUTPUT, echo pin as an INPUT, and buzzer pin as an OUTPUT
+  pinMode(triggerPin, OUTPUT);
+  pinMode(echoPin, INPUT);
+  pinMode(buzzer, OUTPUT);
+
+  // Start serial communication at a baud rate of 9600
+  Serial.begin(9600);
+}
+
+void loop() {
+  // Send a pulse to the ultrasonic sensor
+  digitalWrite(triggerPin, LOW);
+  delayMicroseconds(5);
+  digitalWrite(triggerPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(triggerPin, LOW);
+
+  // Measure the duration of the pulse and calculate the distance
+  x = pulseIn(echoPin, HIGH);
+  distance = x * 0.034 / 2;
+
+  // Print the calculated distance to the Serial Monitor
+  Serial.print("Calculated Distance: ");
+  Serial.print(distance);
+  Serial.println(" cm");
+
+  // Delay for 100 milliseconds
+  delay(100);
+
+  // Read the state of the buzzer
+  digitalRead(buzzer);
+
+  // Check if the distance is less than or equal to 50 cm
+  if (distance <= 50) {
+    // Turn on the buzzer if the distance is less than or equal to 50 cm
+    digitalWrite(buzzer, HIGH);
+  } else {
+    // Turn off the buzzer if the distance is greater than 50 cm
+    digitalWrite(buzzer, LOW);
+  }
+}
