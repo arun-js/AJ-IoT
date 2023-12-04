@@ -29,7 +29,7 @@ void loop() {
 
   // Measure the duration of the pulse and calculate the distance
   x = pulseIn(echoPin, HIGH);
-  distance = x * 0.030 / 2;
+  distance = x * 0.034 / 2;
 
   // Print the calculated distance to the Serial Monitor
   Serial.print("Calculated Distance: ");
