@@ -1,0 +1,37 @@
+#define echoPin 6
+#define triggerPin 7
+long x;
+int distance;
+int buzzer=8;
+void setup() 
+{
+  pinMode(triggerPin, OUTPUT);
+  pinMode(echoPin, INPUT);
+  pinMode(buzzer, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop() 
+{
+  digitalWrite(triggerPin, LOW);
+  delayMicroseconds(5);
+  digitalWrite(triggerPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(triggerPin, LOW);
+  x=pulseIn(echoPin, HIGH);
+  distance=x*0.034/2;
+  Serial.print("Calculated Distance: ");
+  Serial.print(distance);
+  Serial.println("cm");
+  delay(100);
+  digitalRead(buzzer);
+  if (distance<=50)
+  {
+    digitalWrite(8, HIGH);
+  }
+  else
+  {
+    digitalWrite(8, LOW);
+  }
+
+}
