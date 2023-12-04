@@ -43,7 +43,7 @@ void loop() {
   digitalRead(buzzer);
 
   // Check if the distance is less than or equal to 50 cm
-  if (distance <= 50) {
+  if (distance <= 70) {
     // Turn on the buzzer if the distance is less than or equal to 50 cm
     digitalWrite(buzzer, HIGH);
   } else {
