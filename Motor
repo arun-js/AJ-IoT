@@ -1,0 +1,7 @@
+#define MOTOR_EN_1_2  10
+#define MOTOR_IN1     9
+#define MOTOR_IN2     8
+ 
+#define slow 64
+#define normal 128
+#define fast 255
