@@ -52,3 +52,21 @@ void setup() {
   pinMode(MOTOR_IN1, OUTPUT);
   pinMode(MOTOR_IN2, OUTPUT);
 }
+void loop() {
+ 
+  Speed=normal; // Normal Speed
+ 
+  Forward_Rev();
+  delay(1000);
+  Brake();
+  delay(500);
+  Backward_Rev();
+  delay(1000);
+  Brake();
+  delay(500);
+  Forward_ramp_up();
+  Forward_ramp_down();
+  Backward_ramp_up();
+  Backward_ramp_down();
+  
+}
