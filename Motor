@@ -5,3 +5,16 @@
 #define slow 64
 #define normal 128
 #define fast 255
+int Speed;
+ 
+void Forward_Rev(void){
+  analogWrite(MOTOR_EN_1_2, Speed);
+  digitalWrite(MOTOR_IN1, HIGH);
+  digitalWrite(MOTOR_IN2, LOW);
+}
+ 
+void Backward_Rev(void){
+  analogWrite(MOTOR_EN_1_2, Speed);
+  digitalWrite(MOTOR_IN1, LOW);
+  digitalWrite(MOTOR_IN2, HIGH);
+}
