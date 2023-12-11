@@ -38,3 +38,17 @@ digitalWrite(MOTOR_IN2, HIGH); for (int i=255; i&gt;=0; i--) {
     delay(10);
   }
 }
+void Brake(void){
+  digitalWrite(MOTOR_IN1, HIGH);
+  digitalWrite(MOTOR_IN2, HIGH);
+}
+ 
+void setup() {
+  
+  Serial.begin(9600);
+  Serial.println(&quot;L293D DC motor test&quot;);
+ 
+  pinMode(MOTOR_EN_1_2, OUTPUT);
+  pinMode(MOTOR_IN1, OUTPUT);
+  pinMode(MOTOR_IN2, OUTPUT);
+}
